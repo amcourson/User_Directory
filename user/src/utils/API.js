@@ -1,17 +1,10 @@
-import React, {Component} from "react";
-import {render} from "react-dom";
-import $ from "jquery"
+import axios from "axios";
 
 
-
-
-// $.ajax({
-//     url: 'https://randomuser.me/api/',
-//     dataType: 'json',
-//     success: function(data) {
-//       console.log(data);
-//     }
-//   });
-        
+export default {
+  search: function(query) {
+    return axios.get(https://randomuser.me/);
+  }
+};
 
  
