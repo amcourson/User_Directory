@@ -15,8 +15,8 @@ class Search extends Component {
 
   // When the component mounts, get a list of all available base breeds and update this.state.breeds
   componentDidMount() {
-    API.getBaseBreedsList()
-      .then(res => this.setState({ breeds: res.data.message }))
+    API.getUserList()
+      .then(res => this.setState({ user: res.data.message }))
       .catch(err => console.log(err));
   }
 
@@ -26,7 +26,7 @@ class Search extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    API.getDogsOfBreed(this.state.search)
+    API.getUserList(this.state.search)
       .then(res => {
         if (res.data.status === "error") {
           throw new Error(res.data.message);

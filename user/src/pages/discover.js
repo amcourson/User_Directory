@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import Card from "../components/Card";
-import Alert from "../components/Alert";
+
 
 class Discover extends Component {
   state = {
@@ -12,7 +12,7 @@ class Discover extends Component {
 
   // When the component mounts, load the next dog to be displayed
   componentDidMount() {
-    this.loadNextDog();
+    this.loadNextUser();
   }
 
   handleBtnClick = event => {
@@ -36,11 +36,11 @@ class Discover extends Component {
     }
     // Replace our component's state with newState, load the next dog image
     this.setState(newState);
-    this.loadNextDog();
+    this.loadNextUser();
   };
 
-  loadNextDog = () => {
-    API.getRandomDog()
+  loadNextUser = () => {
+    API.getRandomUser()
       .then(res =>
         this.setState({
           image: res.data.message
@@ -52,17 +52,14 @@ class Discover extends Component {
   render() {
     return (
       <div>
-        <h1 className="text-center">Make New Friends</h1>
+        <h1 className="text-center">See Employees</h1>
         <h3 className="text-center">
-          Thumbs up on any pups you'd like to meet!
+          
         </h3>
         <Card image={this.state.image} handleBtnClick={this.handleBtnClick} />
         <h1 className="text-center">
-          Made friends with {this.state.matchCount} pups so far!
+          You can see this person {this.state.matchCount} 
         </h1>
-        <Alert style={{ opacity: this.state.match ? 1 : 0 }} type="success">
-          Yay! That Pup Liked You Too!!!
-        </Alert>
       </div>
     );
   }
