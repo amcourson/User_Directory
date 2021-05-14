@@ -2,7 +2,10 @@ import axios from "axios";
 
 
 export default {
-  search: function(query) {
-    return axios.get("https://randomuser.me/api/?exc=login")
+  generate: function () {
+    return axios.get("https://randomuser.me/api/?results=25")
+  }
+}
+
 
 
